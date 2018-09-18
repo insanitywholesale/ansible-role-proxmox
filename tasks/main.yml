@@ -417,5 +417,8 @@
 
 - import_tasks: ssl_config.yml
   when:
-    - "pve_ssl_private_key is defined"
-    - "pve_ssl_certificate is defined"
+    - pve_ssl_private_key is defined
+    - pve_ssl_certificate is defined
+
+- import_tasks: acme_config.yml
+  when: pve_acme_enabled
